@@ -31,6 +31,7 @@ public class TrainLine {
      * 
      * @param name String with name of new station to create and add
      */
+    
     public void add(String name) {
         Station newStation = new Station(name);
         if (this.head == null) {
@@ -51,6 +52,32 @@ public class TrainLine {
         // or this.numberOfStations++;
         // or this.numberOfStatiosn += 1;
     } // method add
+
+    // Returns 0 if named station is first, 1 if it's the second.
+    // If the station is not present in the train line, the method return -1.
+    public int indexOf(String stationName){
+        Station cursor = this.head;
+        int index = 0;
+        if (cursor != null) {
+        if (cursor.getName().equals(stationName)){
+                    return index;
+                }
+                cursor = cursor.getNext();
+                index++;
+            }
+                return -1;   
+            }
+
+    // Returns true if the train line contains the station with the given name, if not return false.
+    public boolean contains(String stationName){
+         Station cursor = this.head;
+            while (cursor != null) {
+                if (cursor.getName().equals(stationName)){
+                    return true;
+                } cursor = cursor.getNext();
+            }
+                    return false;
+                }
 
     /**
      * Finds how many stations are in a train line
